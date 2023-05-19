@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FormLogin from './form/FormLogin';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const usenavigate = useNavigate();
     const toCreatAcount = () => {
-        usenavigate("/createAcount");
+        usenavigate("createAcount");
     }
+
+    
 
   return (
         <div className="col-12 col-lg-5 mx-1">
@@ -16,7 +18,7 @@ const Login = () => {
                     <span>Don't have an acount? </span>
                     <button
                     onClick={toCreatAcount}
-                    className="p-0 m-0 border-0 text-danger">
+                    className="p-0 bg-transparent m-0 border-0 text-danger">
                         Create Now
                     </button>
                 </div>

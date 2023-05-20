@@ -1,7 +1,6 @@
 import React from 'react';
 import logo from "../assets/images/sign_up--01.png";
 import {Outlet} from "react-router-dom";
-import googleIcon from "../assets/images/search 1.png";
 
 const Home = () => {
     const bgLogo = {

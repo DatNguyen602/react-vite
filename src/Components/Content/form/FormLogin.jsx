@@ -75,14 +75,17 @@ const FormLogin = () => {
             border-2 border-info mb-2" />
             <p className="logPass text-danger"></p>
 
-            <button 
+            <button
             type='button'
             onClick={handleLogin}
             className="col-12 bg-orange-500 bg-gadient text-white py-3 mt-5 border-0 rounded">
                 Login
             </button>
             <span className="col-12">
-                <p className='mt-2 text-info p-0'>Forgot a password?</p>
+                <button
+                type='button' className='mt-2 text-info p-0'>
+                    Forgot a password?
+                </button>
             </span>
         </div>
     </form>

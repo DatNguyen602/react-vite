@@ -7,7 +7,7 @@ import CreateAcount from "./Components/Content/CreateAcount";
 function App() {
   return (<div>
     <Routes>
-      <Route path="/" element={<Home/>}>
+      <Route path="react-vite/" element={<Home/>}>
           <Route index element={<Login/>}/>
           <Route path='createAcount' element={<CreateAcount/>}/>
       </Route>

@@ -9,8 +9,6 @@ const Login = () => {
         usenavigate("createAcount");
     }
 
-    
-
   return (
         <div className="col-12 col-lg-5 m-auto">
             <div className="nav my-4">

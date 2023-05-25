@@ -1,17 +1,11 @@
 import './App.css';
-import Home from './pages/Home';
 import {Routes,Route} from "react-router-dom";
-import Login from "./Components/Content/Login";
-import CreateAcount from "./Components/Content/CreateAcount";
+import Home from './pages/Home';
+import Test from './components/Test';
 
 function App() {
   return (<div>
-    <Routes>
-      <Route path="react-vite/" element={<Home/>}>
-          <Route index element={<Login/>}/>
-          <Route path='createAcount' element={<CreateAcount/>}/>
-      </Route>
-    </Routes>
+    <Test/>
   </div>
   )
 }

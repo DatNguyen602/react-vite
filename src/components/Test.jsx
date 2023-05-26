@@ -8,6 +8,8 @@ const Test = () => {
         tt: 0,
     })
 
+    const [listTime,setListTime] = useState([]);
+
     let start  = useRef("");
     const [stateTime,setStateTime] = useState(false);
 
@@ -59,8 +61,16 @@ const Test = () => {
         setStateTime(false);
     }
 
+    const setedTime = () => {
+        setListTime([
+            ...listTime,
+            time,
+        ])
+    }
+
     const clearTime = () => {
         clearInterval(start.current);
+        setListTime([]);
         setStateTime(false);
         setTime({
             hh: 0,
@@ -70,42 +80,67 @@ const Test = () => {
         })
     }
 
-  return (
-    <div className='text-center'>
-        <h1>Timer</h1>
-        <h2 className='mb-4'>
-        <div className='d-flex justify-content-center'>
-            <div className='w-14'>{time.hh<10?0:""}{time.hh}</div>
-            : 
-            <div className='w-14'>{time.mm<10?0:""}{time.mm}</div>
-            : 
-            <div className='w-14'>{time.ss<10?0:""}{time.ss}</div>
-            : 
-            <div className='w-14'>{time.tt<10?0:""}{time.tt}</div>
+    return (
+        <div className='text-center'>
+            <h1>Timer</h1>
+            <h2 className='mb-4'>
+                <div className='d-flex justify-content-center'>
+                    <div className='w-14'>{time.hh<10?0:""}{time.hh}</div>
+                    : 
+                    <div className='w-14'>{time.mm<10?0:""}{time.mm}</div>
+                    : 
+                    <div className='w-14'>{time.ss<10?0:""}{time.ss}</div>
+                    : 
+                    <div className='w-14'>{time.tt<10?0:""}{time.tt}</div>
+                </div>
+            </h2>
+            {
+            !stateTime?
+            <button 
+            onClick={startTime}
+            className='btn px-5 py-3 fw-bolder text-zinc-500 border'
+            type="button">
+                Start
+            </button>:
+            <button 
+            onClick={stopTime}
+            className='btn px-5 py-3 fw-bolder text-zinc-500 border'
+            type="button">
+                Stop
+            </button>}
+            <button 
+            onClick={setedTime}
+            className='btn px-5 py-3 fw-bolder text-zinc-500 border ms-4'
+            type="button">
+                Set Time
+            </button>
+            <button 
+            onClick={clearTime}
+            className='btn px-5 py-3 fw-bolder text-zinc-500 border ms-4'
+            type="button">
+                Clear
+            </button>
+
+            <div className='h-64 snap-none overflow-y-scroll mt-5 p-0'>
+                {
+                    listTime.length>0 && listTime.map((value,id) => {
+                        return <h2 key={id} className='mt-4'>
+                            <div className='d-flex justify-content-center'>
+                                <div className='w-14'>{id+1<10?0:""}{id+1}</div> - 
+                                <div className='w-14'>{value.hh<10?0:""}{value.hh}</div>
+                                : 
+                                <div className='w-14'>{value.mm<10?0:""}{value.mm}</div>
+                                : 
+                                <div className='w-14'>{value.ss<10?0:""}{value.ss}</div>
+                                : 
+                                <div className='w-14'>{value.tt<10?0:""}{value.tt}</div>
+                            </div>
+                        </h2>
+                    })
+                }
+            </div>
         </div>
-        </h2>
-        {
-        !stateTime?
-        <button 
-        onClick={startTime}
-        className='btn px-5 py-3 fw-bolder text-zinc-500 border'
-        type="button">
-            Start
-        </button>:
-        <button 
-        onClick={stopTime}
-        className='btn px-5 py-3 fw-bolder text-zinc-500 border'
-        type="button">
-            Stop
-        </button>}
-        <button 
-        onClick={clearTime}
-        className='btn px-5 py-3 fw-bolder text-zinc-500 border ms-4'
-        type="button">
-            Clear
-        </button>
-    </div>
-  )
+    )
 }
 
 export default Test

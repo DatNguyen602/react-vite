@@ -1,25 +1,5 @@
 @import "bootstrap/scss/bootstrap.scss";
 
-.loginForm{
-    p{
-        position: relative;
-    }
-    p::before{
-        content: "";
-        position: absolute;
-        left: 20%;
-        top: 50%;
-        width: 20%;
-        height: 1px;
-        background-color: #555;
-    }
-    p::after{
-        content: "";
-        position: absolute;
-        left: 60%;
-        top: 50%;
-        width: 20%;
-        height: 1px;
-        background-color: #555;
-    }
+*::-webkit-scrollbar { 
+    display: none;
 }
